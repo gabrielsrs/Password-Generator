@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Source+Code+Pro&display=swap');
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: auto;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 100px;
+}
+
+#title h2 {
+    color: var(--dark-grey);
+    font-size: 30px;
+    font-family: var(--cursive-font);
+    text-align: center;
+}
+
+#pwd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 420px;
+    padding: 30px;
+    background-color: var(--light-blue-grey);
+    border-radius: 10px;
+}
+
+#generated-pwd {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 300px;
+    color: var(--dark-grey);
+    font-size: 25px;
+    font-weight: 400;
+    font-family: var(--pattern-font);
+    user-select: none;
+}
+
+#copy-pwd,
+#new-pwd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    color: var(--dark-blue-grey);
+    user-select: none;
+    cursor: pointer;
+}
+
+#copy-pwd:hover,
+#new-pwd:hover {
+    transform: translateY(-4px);
+}
+
+#copy-pwd:active ,
+#new-pwd:active {
+    transform: translateY(0);
+}
+
+#config-pwd-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 25px;
+    background-color: var(--blue-grey);
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#config-pwd-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--dark-blue-grey) 0 8px 15px;
+}
+
+#config-pwd-toggle:active {
+    transform: translateY(0);
+    background-color: var(--light-blue-grey);
+    box-shadow: none;
+}
+
+#config-pwd-toggle span {
+    font-family: var(--pattern-font);
+    color: #4e525f;
+    font-weight: 600;
+}
+
+#config-pwd-fields {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 440px;
+    height: 150px;
+    padding: 20px;
+    background-color: var(--light-blue-grey);
+    border-radius: 10px;
+    font-family: var(--pattern-font);
+}
+
+.config-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 215px;
+    height: 150px;
+}
+
+.sizes-pwd {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.sizes-pwd span {
+    font-family: var(--pattern-font);
+    color: #4e525f;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.declare-size {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 215px;
+    height: 32px;   
+}
+
+.declare-size input[type="number"] {
+    text-align: center;
+    line-height: 32px;
+    width: 35px;
+    height: 32px;
+    font-size: 20px;
+    color: var(--dark-grey);
+    padding-left: 9px;
+    padding-right: 2px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    outline: none;
+    caret-color: var(--dark-blue-grey);
+}
+
+.progress {
+    width: 160px;
+    height: 10px;
+    /* appearance: none; */
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 200px;
+    height: 30px;
+    user-select: none;
+}
+
+.options input[type="checkbox"] {
+    width: 20px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.options label {
+    font-family: var(--pattern-font);
+    color: #4e525f;
+    font-weight: 600;
+}
+
+#esp-characters {
+    display: block;
+    width: 200px;
+    height: 57px;
+}
+
+#characters {
+    width: 75px;
+    height: 15px;
+    padding: 5px;
+    margin-left: 25px;
+    font-family: var(--pattern-font);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark-grey); 
+    border: 1px solid var(--dark-blue-grey);
+    border-radius: 4px;
+    outline: none;
+    caret-color: var(--dark-blue-grey);
+}
+
+
+/* 
+Tooltip to copy and refresh : https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+Resize the number of size and amount if caped
+Style range input
+Style checkbox input
+Animation for configuration content
+Size if pwd is grant
+Refresh [
+    clean field
+    Generate pwd         
+        pwd < 4 -> autogenerate
+        pwd >= 4 -> one of each option 
+        pwd >= 8 -> 
+]
+
+*/
+
+
+
+

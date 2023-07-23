@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/root.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>PWD GENERATOR</title>
+</head>
+<body>
+    <main id="main">
+        <div id="center-content">
+            <div id="title">
+                <h2>Password Generator</h2>
+            </div>
+            <div id="pwd">
+                <div id="generated-pwd">
+                    n!G2K4fiCB26
+                </div>
+                <div id="copy-pwd" title="Copy">
+                    <i class="fa-solid fa-copy"></i>
+                </div>
+                <div id="new-pwd" title="Refresh">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+            </div>
+            <div id="config-pwd-toggle">
+                <span>Configuration</span>
+            </div>
+            <div id="config-pwd-fields">
+                <div class="config-contents">
+                    <div class="sizes-pwd">
+                        <span>Password Size</span>
+                        <div class="declare-size">
+                            <input type="number" min="0" max="40" name="" id="size-pwd-number" class="sizes-for-pwd" value="12">
+                            <input type="range" min="0" max="40" name="" id="size-pwd-range" class="progress" value="12">
+                        </div>
+                    </div>
+                    <div class="sizes-pwd">
+                        <span>Password Amount</span>
+                        <div class="declare-size">
+                            <input type="number" min="0" max="99" name="" id="amount-pwd-number" class="sizes-for-pwd" value="1">
+                            <input type="range" min="0" max="99" name="" id="amount-pwd-range" class="progress" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="config-contents">
+                    <div class="options">
+                        <input type="checkbox" name="" id="lowercase" checked>
+                        <label for="lowercase">Lowercase</label>
+                    </div>
+                    <div class="options">
+                        <input type="checkbox" name="" id="uppercase" checked>
+                        <label for="uppercase">Uppercase</label>
+                    </div>
+                    <div class="options">
+                        <input type="checkbox" name="" id="number" checked>
+                        <label for="number">Number</label>
+                    </div>
+                    <div id="esp-characters">
+                        <div class="options">
+                            <input type="checkbox" name="" id="especial-characters" checked>
+                            <label for="especial-characters">Especial Characters</label>
+                        </div>
+                        <input type="text" name="" id="characters" value="!@#$%^&*">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script type="text/javascript" src="../static/javascript/home.js" ></script>
+</body>
+</html>
