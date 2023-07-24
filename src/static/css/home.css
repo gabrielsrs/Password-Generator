@@ -14,7 +14,8 @@
     align-items: center;
     justify-content: center;
     width: 700px;
-    height: auto;
+    max-height: 80vh;
+    overflow: hidden;
 }
 
 #title {
@@ -46,18 +47,34 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     width: 300px;
+    max-height: 50vh;
     color: var(--dark-grey);
     font-size: 25px;
     font-weight: 400;
     font-family: var(--pattern-font);
-    user-select: none;
+    overflow: auto;
+}
+
+#generated-pwd::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+#generated-pwd::-webkit-scrollbar-thumb {
+    background-color: var(--dark-grey);
+    border-radius: 10px;
+}
+
+#generated-pwd::-webkit-scrollbar-corner {
+    display: none;
 }
 
 #copy-pwd,
 #new-pwd {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 50px;
@@ -68,13 +85,36 @@
     cursor: pointer;
 }
 
-#copy-pwd:hover,
-#new-pwd:hover {
+#copy-pwd span,
+#new-pwd span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    position: fixed;
+    margin-bottom: 80px;
+    background-color: var(--dark-blue-grey);
+    font-family: var(--pattern-font);
+    color: var(--light-blue-grey);
+    font-size: 15px;
+    padding: 4px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+#copy-pwd:hover span,
+#new-pwd:hover span {
+    opacity: 1;
+}
+
+#copy-pwd:hover i,
+#new-pwd:hover i {
     transform: translateY(-4px);
 }
 
-#copy-pwd:active ,
-#new-pwd:active {
+#copy-pwd:active i,
+#new-pwd:active i {
     transform: translateY(0);
 }
 
@@ -109,7 +149,6 @@
 }
 
 #config-pwd-fields {
-    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -172,7 +211,7 @@
 .progress {
     width: 160px;
     height: 10px;
-    /* appearance: none; */
+    accent-color: var(--storm-gray);
 }
 
 .options {
@@ -188,12 +227,15 @@
     width: 20px;
     height: 30px;
     margin-right: 5px;
+    accent-color: var(--storm-gray);
+    cursor: pointer;
 }
 
 .options label {
     font-family: var(--pattern-font);
-    color: #4e525f;
+    color: var(--dark-grey);
     font-weight: 600;
+    cursor: pointer;
 }
 
 #esp-characters {
@@ -217,24 +259,16 @@
     caret-color: var(--dark-blue-grey);
 }
 
-
-/* 
-Tooltip to copy and refresh : https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
-Resize the number of size and amount if caped
-Style range input
-Style checkbox input
-Animation for configuration content
-Size if pwd is grant
-Refresh [
-    clean field
-    Generate pwd         
-        pwd < 4 -> autogenerate
-        pwd >= 4 -> one of each option 
-        pwd >= 8 -> 
-]
-
-*/
-
-
-
-
+#no-elements {
+    display: none;
+    height: 15px;
+    padding: 5px;
+    align-items: center;
+    line-height: 15px;
+    font-family: var(--pattern-font);
+    color: var(--dark-grey);
+    font-size: 20px;
+    font-weight: 600;
+    cursor: progress;
+    user-select: none;
+}

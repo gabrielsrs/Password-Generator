@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="https://github.com/fent/randexp.js/releases/download/v0.4.3/randexp.min.js"></script>
+
     <title>PWD GENERATOR</title>
 </head>
 <body>
@@ -17,20 +19,20 @@
                 <h2>Password Generator</h2>
             </div>
             <div id="pwd">
-                <div id="generated-pwd">
-                    n!G2K4fiCB26
-                </div>
-                <div id="copy-pwd" title="Copy">
+                <pre id="generated-pwd">Click in Refresh</pre>
+                <div id="copy-pwd">
+                    <span>Copy</span>
                     <i class="fa-solid fa-copy"></i>
                 </div>
-                <div id="new-pwd" title="Refresh">
+                <div id="new-pwd">
+                    <span>Refresh</span>
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </div>
             </div>
             <div id="config-pwd-toggle">
                 <span>Configuration</span>
             </div>
-            <div id="config-pwd-fields">
+            <div id="config-pwd-fields" style="display: none;">
                 <div class="config-contents">
                     <div class="sizes-pwd">
                         <span>Password Size</span>
@@ -42,22 +44,22 @@
                     <div class="sizes-pwd">
                         <span>Password Amount</span>
                         <div class="declare-size">
-                            <input type="number" min="0" max="99" name="" id="amount-pwd-number" class="sizes-for-pwd" value="1">
-                            <input type="range" min="0" max="99" name="" id="amount-pwd-range" class="progress" value="1">
+                            <input type="number" min="1" max="99" name="" id="amount-pwd-number" class="sizes-for-pwd" value="1">
+                            <input type="range" min="1" max="99" name="" id="amount-pwd-range" class="progress" value="1">
                         </div>
                     </div>
                 </div>
                 <div class="config-contents">
                     <div class="options">
-                        <input type="checkbox" name="" id="lowercase" checked>
+                        <input type="checkbox" name="" id="lowercase" value="a-z" checked>
                         <label for="lowercase">Lowercase</label>
                     </div>
                     <div class="options">
-                        <input type="checkbox" name="" id="uppercase" checked>
+                        <input type="checkbox" name="" id="uppercase" value="A-Z" checked>
                         <label for="uppercase">Uppercase</label>
                     </div>
                     <div class="options">
-                        <input type="checkbox" name="" id="number" checked>
+                        <input type="checkbox" name="" id="number" value="0-9" checked>
                         <label for="number">Number</label>
                     </div>
                     <div id="esp-characters">
@@ -66,6 +68,7 @@
                             <label for="especial-characters">Especial Characters</label>
                         </div>
                         <input type="text" name="" id="characters" value="!@#$%^&*">
+                        <small id="no-elements" title="With no characters will change the password size">!</small>
                     </div>
                 </div>
             </div>
