@@ -1,0 +1,29 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+    box-shadow:border-box;
+}
+
+body{
+    font-size: 100%;
+    list-style-type: none;
+    background: #676d85;
+    overflow-x: hidden;
+}
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --light-blue-grey: #bec2d3;
+    --dark-blue-grey: #535c7e;
+    --dark-grey: #4e525f;
+    --blue-grey : #959dbe;
+    --storm-gray: #676d85;
+
+    --pattern-font: "Poppins", sans-serif;
+    --cursive-font: 'Permanent Marker', cursive;
+}
