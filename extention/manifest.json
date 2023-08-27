@@ -3,7 +3,6 @@
     "name": "PWD Generator",
     "description": "Generate password with varieties sizes/quantities",
     "version": "1.0",
-
     "action": {
         "default_popup": "/popup/home.html"
     }

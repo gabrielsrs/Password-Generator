@@ -115,26 +115,26 @@ function ifChecked() {
 
     const result = []
 
-    for(let size = 0; size < parseInt(sizePwdNumber.value); size++) {
+    for(let size = 1; size < parseInt(sizePwdNumber.value); size++) {
         if(sizePwdNumber.value < 4) {
-            result.push(all(regElements[Math.ceil(Math.random()*(regElements.length - 1))]))
+            result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
         } else if (sizePwdNumber.value >= 4 && sizePwdNumber.value < 8) {
-            if (size == 0) { 
+            if (size == 1) { 
                 regElements.forEach(element => result.push(all(element)))
                 size = regElements.length - 1
             } else {
-                result.push(all(regElements[Math.ceil(Math.random()*(regElements.length - 1))]))
+                result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
             }
             
         } else if (sizePwdNumber.value >= 8) {
-            if (size == 0) { 
+            if (size == 1) { 
                 for(let count = 0; count < 2; count++) { 
                     regElements.forEach(element => result.push(all(element)))
                 }
 
                 size = regElements.length * 2 - 1
             } else {
-                result.push(all(regElements[Math.ceil(Math.random()*(regElements.length - 1))]))
+                result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
             }
 
         }
