@@ -8,7 +8,6 @@ let amountPwdNumber = document.querySelector("#amount-pwd-number")
 const amountPwdRange = document.querySelector("#amount-pwd-range")
 const pwdContainEspecialCharacters = document.querySelector("#especial-characters")
 const characters = document.querySelector("#characters")
-const noCharactersWarning = document.querySelector("#no-elements")
 
 configuration.addEventListener("click", () => {
     configurationFields.style.display = configurationFields.style.display == "none"? "flex": "none"
@@ -51,17 +50,13 @@ amountPwdRange.addEventListener("change", () => {
 
 pwdContainEspecialCharacters.addEventListener("change", () => {
     if(pwdContainEspecialCharacters.checked && !characters.value) {
-        noCharactersWarning.style.display = "inline"
-    } else {
-        noCharactersWarning.style.display = "none"
+        pwdContainEspecialCharacters.checked = false
     }
 })
 
 characters.addEventListener("change", () => {
     if(pwdContainEspecialCharacters.checked && !characters.value) {
-        noCharactersWarning.style.display = "inline"
-    } else {
-        noCharactersWarning.style.display = "none"
+        pwdContainEspecialCharacters.checked = false
     }
 })
 
@@ -70,7 +65,7 @@ refresh.addEventListener("click", () => {
     let amountPwdNumber = document.querySelector("#amount-pwd-number")
     
 
-    generatedPwd.innerHTML = ""
+    generatedPwd.textContent = ""
 
     for(let amount = 0; amount < parseInt(amountPwdNumber.value); amount++) {
         if(!ifChecked()) {
@@ -78,8 +73,16 @@ refresh.addEventListener("click", () => {
             break
         } else {
             const pwd = ifChecked()
-            // .split('').sort(function(){return 0.5-Math.random()}).join('')
-            generatedPwd.insertAdjacentHTML("beforeend", `${pwd}\n`)
+
+            var shuffleCharacters = [...pwd]
+
+            for(index in shuffleCharacters) {
+                const randomPosition = crypto.getRandomValues(new Uint32Array(1))[0] % shuffleCharacters.length;
+
+                [shuffleCharacters[index], shuffleCharacters[randomPosition]] = [shuffleCharacters[randomPosition], shuffleCharacters[index]]
+            }
+
+            generatedPwd.textContent += `${String.raw`${shuffleCharacters.join().replaceAll(',', '')}`}\n`
         }
 
     }
@@ -114,26 +117,26 @@ function ifChecked() {
 
     const result = []
 
-    for(let size = 1; size < parseInt(sizePwdNumber.value); size++) {
+    for(let size = 1; size <= parseInt(sizePwdNumber.value); size++) {
         if(sizePwdNumber.value < 4) {
-            result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
+            result.push(all(regElements[crypto.getRandomValues(new Uint32Array(1))[0] % regElements.length]))
         } else if (sizePwdNumber.value >= 4 && sizePwdNumber.value < 8) {
-            if (size == 1) { 
+            if (size === 1) { 
                 regElements.forEach(element => result.push(all(element)))
-                size = regElements.length - 1
+                size = regElements.length
             } else {
-                result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
+                result.push(all(regElements[crypto.getRandomValues(new Uint32Array(1))[0] % regElements.length]))
             }
             
         } else if (sizePwdNumber.value >= 8) {
-            if (size == 1) { 
+            if (size === 1) {
                 for(let count = 0; count < 2; count++) { 
                     regElements.forEach(element => result.push(all(element)))
                 }
 
-                size = regElements.length * 2 - 1
+                size = regElements.length * 2
             } else {
-                result.push(all(regElements[Math.floor(Math.random()*(regElements.length))]))
+                result.push(all(regElements[crypto.getRandomValues(new Uint32Array(1))[0] % regElements.length]))
             }
 
         }
@@ -147,7 +150,7 @@ function all(range) {
     if(range == "a-z" || range == "A-Z" || range == "0-9") {
         return new RandExp(`[${range}]`).gen()
     } else if (range) {
-        return range[Math.ceil(Math.random()*(range.length - 1))]
+        return range[crypto.getRandomValues(new Uint32Array(1))[0] % range.length]
     } else {
         return ""
     }

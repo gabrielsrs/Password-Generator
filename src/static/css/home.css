@@ -258,17 +258,3 @@
     outline: none;
     caret-color: var(--dark-blue-grey);
 }
-
-#no-elements {
-    display: none;
-    height: 15px;
-    padding: 5px;
-    align-items: center;
-    line-height: 15px;
-    font-family: var(--pattern-font);
-    color: var(--dark-grey);
-    font-size: 20px;
-    font-weight: 600;
-    cursor: progress;
-    user-select: none;
-}
