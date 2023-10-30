@@ -10,19 +10,19 @@
 
     <script src="./randexp.min.js"></script>
 
-    <title>PWD GENERATOR</title>
+    <title>Pwd GENERATOR</title>
 </head>
 <body>
     <main id="main">
         <div id="center-content">
-            <div id="title">
-                <h2>PG</h2>
+            <nav id="nav-top">
+                <img src="./assets/icon-popup.png" alt="Gerador de Senhas">
                 <div id="settings">
                     <div id="config-pwd-toggle">
                         <i class="fa-solid fa-gear fa-lg" style="color: #4e525f;"></i>
                     </div>
                 </div>
-            </div>
+            </nav>
             <div id="pwd" style="display: flex;">
                 <pre id="generated-pwd">Click in Refresh</pre>
                 <div id="copy-pwd">
@@ -42,12 +42,12 @@
                     <div class="sizes-pwd">
                         <span>Password Size</span>
                         <div class="declare-size">
-                            <input type="number" min="0" max="40" name="" id="size-pwd-number" class="sizes-for-pwd" value="12">
-                            <input type="range" min="0" max="40" name="" id="size-pwd-range" class="progress" value="12">
+                            <input type="number" min="1" max="40" name="" id="size-pwd-number" class="sizes-for-pwd" value="12">
+                            <input type="range" min="1" max="40" name="" id="size-pwd-range" class="progress" value="12">
                         </div>
                     </div>
                     <div class="sizes-pwd">
-                        <span>Password Amount</span>
+                        <span>Password Count</span>
                         <div class="declare-size">
                             <input type="number" min="1" max="99" name="" id="amount-pwd-number" class="sizes-for-pwd" value="1">
                             <input type="range" min="1" max="99" name="" id="amount-pwd-range" class="progress" value="1">

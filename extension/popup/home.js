@@ -2,7 +2,6 @@ const pwd = document.querySelector("#pwd")
 const copy = document.querySelector("#copy-pwd")
 const refresh = document.querySelector("#new-pwd")
 const configuration = document.querySelector("#config-pwd-toggle")
-const configurationFields = document.querySelector("#config-pwd-fields")
 let sizePwdNumber = document.querySelector("#size-pwd-number")
 const sizePwdRange = document.querySelector("#size-pwd-range")
 let amountPwdNumber = document.querySelector("#amount-pwd-number")
@@ -11,19 +10,22 @@ const pwdContainEspecialCharacters = document.querySelector("#especial-character
 const characters = document.querySelector("#characters")
 
 configuration.addEventListener("click", () => {
+    const configurationFields = document.querySelector("#config-pwd-fields")
+
     configurationFields.style.display = configurationFields.style.display == "none"? "flex": "none"
     pwd.style.display = pwd.style.display == "flex"? "none": "flex"
 })
 
-configuration.addEventListener("mouseover", () => {	
+configuration.addEventListener("mouseover", () => {
     configuration.querySelector("i").classList.add("fa-spin-pulse")	
-})	
-configuration.addEventListener("mouseout", () => {	
+})
+configuration.addEventListener("mouseout", () => {
     configuration.querySelector("i").classList.remove("fa-spin-pulse")	
 })
 
 copy.addEventListener("click", () => {
     const generatedPwd = document.querySelector("#generated-pwd")
+
     generatedPwd.select
     navigator.clipboard.writeText(generatedPwd.textContent.trim());
     copy.children[0].innerHTML = "Copied"
@@ -77,13 +79,13 @@ refresh.addEventListener("click", () => {
     generatedPwd.textContent = ""
 
     for(let amount = 0; amount < parseInt(amountPwdNumber.value); amount++) {
-        if(!ifChecked()) {
+        const pwd = ifChecked()
+
+        if(!pwd) {
             generatedPwd.insertAdjacentHTML("beforeend", "None character selected")
             break
         } else {
-            const pwd = ifChecked()
-
-            var shuffleCharacters = [...pwd]
+            const shuffleCharacters = [...pwd]
 
             for(index in shuffleCharacters) {
                 const randomPosition = crypto.getRandomValues(new Uint32Array(1))[0] % shuffleCharacters.length;
@@ -155,14 +157,12 @@ function ifChecked() {
     return String(result).replaceAll(",", "")
 }
 
-
-function all(range) {	
-    if(range == "a-z" || range == "A-Z" || range == "0-9") {	
-        return new RandExp(`[${range}]`).gen()	
-    } else if (range) {	
+function all(range) {
+    if(range == "a-z" || range == "A-Z" || range == "0-9") {
+        return new RandExp(`[${range}]`).gen()
+    } else if (range) {
         return range[crypto.getRandomValues(new Uint32Array(1))[0] % range.length]
     } else {
         return ""
     }
-    
 }

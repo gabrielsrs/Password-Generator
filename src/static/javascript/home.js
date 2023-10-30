@@ -68,13 +68,13 @@ refresh.addEventListener("click", () => {
     generatedPwd.textContent = ""
 
     for(let amount = 0; amount < parseInt(amountPwdNumber.value); amount++) {
-        if(!ifChecked()) {
+        const pwd = ifChecked()
+
+        if(!pwd) {
             generatedPwd.insertAdjacentHTML("beforeend", "None character selected")
             break
         } else {
-            const pwd = ifChecked()
-
-            var shuffleCharacters = [...pwd]
+            const shuffleCharacters = [...pwd]
 
             for(index in shuffleCharacters) {
                 const randomPosition = crypto.getRandomValues(new Uint32Array(1))[0] % shuffleCharacters.length;
